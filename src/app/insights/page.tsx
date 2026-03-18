@@ -18,7 +18,7 @@ export default function InsightsPage() {
                             <Brain className="mr-2 h-5 w-5" /> The Prediction Engine
                         </CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4 text-muted-foreground">
+                    <CardContent className="space-y-4 text-muted-foreground text-justify">
                         <p>
                             The MVP uses a tailored rules-engine and <strong>K-Nearest Neighbors (KNN)</strong> machine learning model to calculate real-time overflow risk for every zone in Abuja.
                         </p>
@@ -35,7 +35,7 @@ export default function InsightsPage() {
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <ul className="space-y-3 text-muted-foreground list-disc pl-5">
+                        <ul className="space-y-3 text-muted-foreground list-disc pl-5 text-justify">
                             <li><strong>Urgency Level:</strong> Resident subjective assessment.</li>
                             <li><strong>Waste Type Severity:</strong> Organic waste decays faster than recycling.</li>
                             <li><strong>Temporal Density:</strong> Time elapsed since the last service.</li>
@@ -66,7 +66,7 @@ export default function InsightsPage() {
                         Aligning with global responsible AI standards.
                     </CardDescription>
                 </CardHeader>
-                <CardContent className="text-orange-950/80 space-y-2">
+                <CardContent className="text-orange-950/80 space-y-2 text-justify">
                     <p>
                         This system uses predictive scoring and prioritization logic for demonstration purposes. It is designed to <strong className="font-bold">support human decision making</strong>, not replace it.
                     </p>
