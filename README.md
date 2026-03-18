@@ -28,15 +28,18 @@ In rapidly expanding urban centers like Abuja, waste management agencies rely he
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack & 3MTT Learning Application
 - **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
+- **Language**: TypeScript & Python (for ML prototyping)
 - **Styling**: Tailwind CSS & custom deep-emerald civic theme
-- **UI Components**: shadcn/ui (Radix + Tailwind)
-- **Icons**: Lucide React
 - **Database**: Prisma ORM with SQLite (Real local backend for MVP portability)
-- **AI/ML Layer**: `ml-knn` (K-Nearest Neighbors implementation for predictive scoring)
-- **Deployment**: Vercel
+
+**Curriculum Application:**
+This MVP explicitly applies the **3MTT Data Training Architecture**:
+- **Data Management & Spreadsheets**: Built persistent relational databases (SQLite) and generated structured CSV datasets (`analysis/sample_waste_dataset.csv`) to validate information architectures.
+- **Beginner Python Programming**: Developed structural Python prototypes (`analysis/prototype_model.py`) utilizing data types, loops, logic, and SciKit-Learn for model engineering.
+- **Analytics & Machine Learning**: Deployed functional K-Nearest Neighbors (KNN) algorithms to accurately predict incident hazard levels and priority constraints.
+- **Data Analyst Workflow**: The Admin Dashboard (`/dashboard`) was deliberately designed mimicking an authentic Data Analyst Workflow—visualizing ingested data to drive actionable dispatch solutions.
 
 ---
 

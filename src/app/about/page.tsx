@@ -20,6 +20,31 @@ export default function AboutPage() {
                 </section>
 
                 <section>
+                    <h2 className="text-2xl font-bold text-emerald-900 mb-4 border-b pb-2">3MTT Learning Application</h2>
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                        This MVP serves as a comprehensive capstone applying the core modules from the 3MTT learning tract:
+                    </p>
+                    <ul className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 mb-12">
+                        <li className="flex flex-col p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100">
+                            <strong className="text-emerald-900 dark:text-emerald-100">Data & Data Management</strong>
+                            <span className="text-sm text-emerald-700 dark:text-emerald-300">Managed local relational data (SQLite) and generated reproducible mock datasets via Spreadsheets & CSV imports for ML validation.</span>
+                        </li>
+                        <li className="flex flex-col p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100">
+                            <strong className="text-emerald-900 dark:text-emerald-100">Beginner Python Programming</strong>
+                            <span className="text-sm text-emerald-700 dark:text-emerald-300">Employed Python logic (variables, loops, and SciKit-Learn) in a prototype to clean data and train the initial analytic algorithms.</span>
+                        </li>
+                        <li className="flex flex-col p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100">
+                            <strong className="text-emerald-900 dark:text-emerald-100">Analytics & Machine Learning</strong>
+                            <span className="text-sm text-emerald-700 dark:text-emerald-300">Applied K-Nearest Neighbors (KNN) algorithms to accurately predict risk scores from real-world features, directly applying core ML concepts.</span>
+                        </li>
+                        <li className="flex flex-col p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100">
+                            <strong className="text-emerald-900 dark:text-emerald-100">Data Analyst Workflow</strong>
+                            <span className="text-sm text-emerald-700 dark:text-emerald-300">Designed the Admin Dashboard simulating an authentic Data Analyst workflow—moving from raw data ingestion to visualization and insight extraction.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
                     <h2 className="text-2xl font-bold text-emerald-900 mb-6 border-b pb-2">Expected Impact</h2>
                     <div className="grid sm:grid-cols-2 gap-6">
                         <ImpactCard
