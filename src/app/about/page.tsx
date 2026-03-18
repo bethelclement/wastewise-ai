@@ -11,16 +11,16 @@ export default function AboutPage() {
                 </p>
             </div>
 
-            <div className="space-y-12">
-                <section>
-                    <h2 className="text-2xl font-bold text-emerald-900 mb-4 border-b pb-2">The Problem</h2>
+            <div className="space-y-16">
+                <section className="text-center">
+                    <h2 className="text-3xl font-black text-emerald-950 mb-6 uppercase tracking-widest inline-block border-b-2 border-emerald-500 pb-2">The Problem</h2>
                     <p className="text-lg text-muted-foreground leading-relaxed">
                         In rapidly expanding urban centers like Abuja, waste management agencies rely heavily on reactive cleanup. Collection trucks operate on static routes, entirely unaware of localized overflow crises until severe environmental hazard or public complaint occurs. This leads to inefficient fuel usage, aesthetic degradation of communities, and increased public health risks.
                     </p>
                 </section>
 
-                <section>
-                    <h2 className="text-2xl font-bold text-emerald-900 mb-4 border-b pb-2">3MTT Learning Application</h2>
+                <section className="text-center">
+                    <h2 className="text-3xl font-black text-emerald-950 mb-6 uppercase tracking-widest inline-block border-b-2 border-emerald-500 pb-2">3MTT Learning Application</h2>
                     <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                         This MVP serves as a comprehensive capstone applying the core modules from the 3MTT learning tract:
                     </p>

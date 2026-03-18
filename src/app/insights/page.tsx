@@ -4,8 +4,8 @@ import { Brain, Database, ShieldCheck, Zap } from 'lucide-react'
 export default function InsightsPage() {
     return (
         <div className="container py-12 px-4 md:px-6">
-            <div className="mb-12 max-w-[800px]">
-                <h1 className="text-4xl font-bold tracking-tight text-emerald-950 mb-4">Intelligence Layer</h1>
+            <div className="mb-16 max-w-[800px] mx-auto text-center">
+                <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-emerald-950 mb-6 uppercase">Intelligence Layer</h1>
                 <p className="text-xl text-muted-foreground">
                     How WasteWise AI predicts and prioritizes civic waste management to assist human decision makers.
                 </p>
@@ -45,8 +45,10 @@ export default function InsightsPage() {
                 </Card>
             </div>
 
-            <div className="mb-12">
-                <h2 className="text-2xl font-bold text-emerald-950 mb-6">How Risk is Calculated</h2>
+            <div className="mb-16">
+                <div className="text-center mb-10">
+                    <h2 className="text-3xl font-black text-emerald-950 uppercase tracking-widest">How Risk is Calculated</h2>
+                </div>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <ScoreCard title="Time Delay" description="Age of the pending reports" value="30%" />
                     <ScoreCard title="Severity" description="Type of waste reported" value="30%" />

@@ -1,15 +1,12 @@
 import Link from 'next/link'
-import { Recycle, Sparkles } from 'lucide-react'
+import Image from 'next/image'
 
 export function Navbar() {
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container flex h-16 items-center justify-between">
-                <Link href="/" className="flex items-center space-x-2 text-emerald-700">
-                    <div className="relative flex items-center justify-center">
-                        <Recycle className="h-6 w-6" />
-                        <Sparkles className="h-3 w-3 absolute -top-1.5 -right-1.5 text-lime-600" />
-                    </div>
+                <Link href="/" className="flex items-center space-x-2 text-emerald-700 group">
+                    <Image src="/logo.svg" alt="WasteWise Logo" width={34} height={34} className="group-hover:scale-110 transition-transform duration-300" />
                     <span className="font-bold text-xl tracking-tight text-emerald-950 dark:text-emerald-50">
                         WasteWise
                         <span className="ml-1.5 inline-flex items-center bg-lime-100 text-lime-700 dark:bg-lime-900/30 dark:text-lime-400 text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-sm border border-lime-200 dark:border-lime-800">
