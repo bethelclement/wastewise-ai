@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, Recycle, Sparkles, ShieldAlert, BarChart3, Users, Droplet } from 'lucide-react'
-import { Button, buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
 
 export default function LandingPage() {
   return (
