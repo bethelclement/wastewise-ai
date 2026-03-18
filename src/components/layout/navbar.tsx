@@ -14,6 +14,7 @@ export function Navbar() {
                     <Link href="/insights" className="transition-colors hover:text-emerald-600">AI Insights</Link>
                     <Link href="/data" className="transition-colors hover:text-emerald-600">Demo Data</Link>
                     <Link href="/about" className="transition-colors hover:text-emerald-600">About</Link>
+                    <Link href="/knowledge" className="transition-colors hover:text-emerald-600 font-bold">Knowledge Base</Link>
                 </nav>
             </div>
         </header>

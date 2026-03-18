@@ -9,16 +9,16 @@ export default function LandingPage() {
       <section className="w-full py-24 md:py-32 lg:py-40 bg-emerald-950 text-emerald-50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
-            <div className="flex flex-col justify-center space-y-8">
+            <div className="flex flex-col justify-center space-y-8 items-center lg:items-start text-center lg:text-left">
               <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-white">
                   Predict waste. Prioritize pickup. Keep communities clean.
                 </h1>
-                <p className="max-w-[600px] text-emerald-100/80 md:text-xl">
+                <p className="max-w-[600px] text-emerald-100/80 md:text-xl text-justify">
                   WasteWise AI helps households report waste issues and helps collection teams predict high-risk zones before overflow becomes a public health problem.
                 </p>
               </div>
-              <div className="flex flex-col gap-3 min-[400px]:flex-row">
+              <div className="flex flex-col gap-3 min-[400px]:flex-row justify-center lg:justify-start w-full sm:max-w-[400px]">
                 <Link href="/dashboard" className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-11 px-8 w-full bg-lime-500 text-emerald-950 hover:bg-lime-400 font-semibold shadow-lg shadow-lime-500/20">
                   Open Dashboard
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -68,21 +68,21 @@ export default function LandingPage() {
                 <span className="text-2xl font-bold">1</span>
               </div>
               <h3 className="text-xl font-bold text-emerald-900 dark:text-emerald-100">Report</h3>
-              <p className="text-muted-foreground">Households log waste levels, missed pickups, or illegal dumping via mobile.</p>
+              <p className="text-muted-foreground text-justify">Households log waste levels, missed pickups, or illegal dumping via mobile.</p>
             </div>
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                 <span className="text-2xl font-bold">2</span>
               </div>
               <h3 className="text-xl font-bold text-emerald-900 dark:text-emerald-100">Predict</h3>
-              <p className="text-muted-foreground">AI scores the risk level based on area history, urgency, and waste type severity.</p>
+              <p className="text-muted-foreground text-justify">AI scores the risk level based on area history, urgency, and waste type severity.</p>
             </div>
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-lime-100 text-lime-700">
                 <span className="text-2xl font-bold">3</span>
               </div>
               <h3 className="text-xl font-bold text-emerald-900 dark:text-emerald-100">Prioritize</h3>
-              <p className="text-muted-foreground">Agencies get a smart dashboard mapping high-risk zones for immediate action.</p>
+              <p className="text-muted-foreground text-justify">Agencies get a smart dashboard mapping high-risk zones for immediate action.</p>
             </div>
           </div>
         </div>
@@ -140,7 +140,7 @@ function FeatureCard({ icon, title, desc }: { icon: React.ReactNode, title: stri
         {icon}
       </div>
       <h3 className="font-bold text-xl text-emerald-950 dark:text-emerald-50">{title}</h3>
-      <p className="text-muted-foreground">{desc}</p>
+      <p className="text-muted-foreground text-justify">{desc}</p>
     </div>
   )
 }
