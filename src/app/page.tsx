@@ -19,11 +19,11 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="flex flex-col gap-3 min-[400px]:flex-row">
-                <Link href="/dashboard" className={cn(buttonVariants({ size: "lg" }), "w-full bg-lime-500 text-emerald-950 hover:bg-lime-400 font-semibold shadow-lg shadow-lime-500/20")}>
+                <Link href="/dashboard" className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-11 px-8 w-full bg-lime-500 text-emerald-950 hover:bg-lime-400 font-semibold shadow-lg shadow-lime-500/20">
                   Open Dashboard
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link href="/report" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full border-emerald-500 text-emerald-500 hover:bg-emerald-900/50")}>
+                <Link href="/report" className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-11 px-8 w-full border border-emerald-500 text-emerald-500 hover:bg-emerald-900/50">
                   Report Waste
                 </Link>
               </div>
@@ -124,7 +124,7 @@ export default function LandingPage() {
           <p className="max-w-[600px] mx-auto text-emerald-100/90 mb-8">
             Experience the MVP admin dashboard designed for waste management supervisors and agency staff in Abuja.
           </p>
-          <Link href="/dashboard" className={cn(buttonVariants({ size: "lg" }), "bg-white text-emerald-900 hover:bg-emerald-50 font-bold")}>
+          <Link href="/dashboard" className="inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 h-11 px-8 bg-white text-emerald-900 hover:bg-emerald-50 font-bold">
             View Live Demo Dashboard
           </Link>
         </div>
