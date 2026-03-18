@@ -62,8 +62,8 @@ export default async function DashboardPage() {
             <div className="container mx-auto p-4 md:p-8 space-y-8 max-w-7xl">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
                     <div>
-                        <h1 className="text-3xl font-bold tracking-tight text-emerald-950 text-center sm:text-left">Intelligent Dispatch Dashboard</h1>
-                        <p className="text-muted-foreground text-center sm:text-left">Real-time waste reporting and predictive overflow analytics.</p>
+                        <h1 className="text-3xl font-bold tracking-tight text-emerald-950 text-center">Intelligent Dispatch Dashboard</h1>
+                        <p className="text-muted-foreground text-center">Real-time waste reporting and predictive overflow analytics.</p>
                     </div>
                     <div className="flex justify-center items-center space-x-2 mt-4 sm:mt-0 bg-white border px-4 py-2 rounded-lg shadow-sm w-full sm:w-auto">
                         <span className="relative flex h-3 w-3">
@@ -157,7 +157,7 @@ export default async function DashboardPage() {
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                     {/* AI Zone Priority Map / List */}
                     <Card className="col-span-1 lg:col-span-4 border border-emerald-200 shadow-sm rounded-md">
-                        <CardHeader className="text-center sm:text-left border-b border-emerald-100 bg-emerald-50/50 pb-4">
+                        <CardHeader className="text-center border-b border-emerald-100 bg-emerald-50/50 pb-4">
                             <CardTitle className="text-emerald-950 font-bold text-lg uppercase tracking-wider">Zone Metric Rankings</CardTitle>
                             <CardDescription className="text-xs font-semibold">Live predictive risk scores computing priority across all Abuja districts.</CardDescription>
                         </CardHeader>
@@ -191,7 +191,7 @@ export default async function DashboardPage() {
 
                     {/* Smart Route Recommendations */}
                     <Card className="col-span-1 lg:col-span-3 border border-emerald-900 shadow-sm bg-emerald-950 text-emerald-50 rounded-md">
-                        <CardHeader className="text-center sm:text-left border-b border-emerald-900 pb-4">
+                        <CardHeader className="text-center border-b border-emerald-900 pb-4">
                             <CardTitle className="text-lime-400 flex items-center justify-center sm:justify-start font-mono uppercase tracking-widest text-sm">
                                 <MapPin className="mr-2 h-4 w-4" /> Optimal Dispatch Path
                             </CardTitle>
@@ -205,10 +205,10 @@ export default async function DashboardPage() {
                                         </div>
                                         <div className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] bg-black p-3 rounded-sm border border-emerald-800 shadow-sm flex flex-col">
                                             <div className="flex items-center justify-between mb-1">
-                                                <h4 className="font-mono text-white text-sm text-center w-full sm:w-auto sm:text-left">{stat.area}</h4>
+                                                <h4 className="font-mono text-white text-sm text-center w-full">{stat.area}</h4>
                                                 <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-sm whitespace-nowrap hidden sm:inline-block ${stat.riskScore > 75 ? 'bg-red-500/20 text-red-500 border border-red-500/50' : 'bg-orange-500/20 text-orange-400 border border-orange-500/50'}`}>TARGET</span>
                                             </div>
-                                            <span className="text-xs text-emerald-400/80 truncate text-center sm:text-left font-medium">{stat.insight}</span>
+                                            <span className="text-xs text-emerald-400/80 truncate text-center font-medium">{stat.insight}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -219,7 +219,7 @@ export default async function DashboardPage() {
 
                 {/* Live Incoming Reports Table */}
                 <Card className="border border-emerald-200 shadow-sm rounded-md overflow-hidden">
-                    <CardHeader className="text-center sm:text-left bg-emerald-950 border-b border-emerald-900 p-4">
+                    <CardHeader className="text-center bg-emerald-950 border-b border-emerald-900 p-4">
                         <CardTitle className="text-white font-mono uppercase tracking-widest text-sm">System Data Stream</CardTitle>
                     </CardHeader>
                     <CardContent className="p-0">

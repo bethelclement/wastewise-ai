@@ -56,7 +56,7 @@ export default async function DemoDataPage({
             <Card className="border border-emerald-200 shadow-sm rounded-md overflow-hidden">
                 <CardHeader className="bg-emerald-950 border-b border-emerald-800 p-6">
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <CardTitle className="text-white font-bold tracking-widest uppercase text-center sm:text-left text-lg">
+                        <CardTitle className="text-white font-bold tracking-widest uppercase text-center text-lg">
                             Local SQLite Data Buffer (Showing {items.length} records)
                         </CardTitle>
                         <Badge variant="secondary" className="bg-lime-400 text-emerald-950 hover:bg-lime-500 font-black px-4 py-1.5 shadow-lg shadow-lime-400/20">
