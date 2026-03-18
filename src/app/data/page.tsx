@@ -40,22 +40,21 @@ export default async function DemoDataPage({
     }
 
     return (
-        <div className="container py-12 px-4 md:px-6 max-w-6xl">
+        <div className="container mx-auto py-12 px-4 md:px-6 max-w-6xl">
             <div className="mb-10 text-center">
                 <div className="flex justify-center mb-4">
-                    <div className="bg-emerald-100 p-3 rounded-2xl shadow-sm">
-                        <Database className="w-10 h-10 text-emerald-600" />
+                    <div className="bg-emerald-100 p-3 rounded-md border border-emerald-200">
+                        <Database className="w-10 h-10 text-emerald-700" />
                     </div>
                 </div>
                 <h1 className="text-4xl font-black tracking-tighter text-emerald-950 uppercase">Global Data Explorer</h1>
                 <p className="text-muted-foreground mt-3 font-medium max-w-2xl mx-auto">
                     Inspect the synthetic reporting dataset mapping driving the core intelligence dashboard algorithms.
-                    Fully centered table alignment per system specifications.
                 </p>
             </div>
 
-            <Card className="border-emerald-100 shadow-xl overflow-hidden rounded-2xl">
-                <CardHeader className="bg-gradient-to-r from-emerald-950 to-emerald-900 border-b border-emerald-800 p-6">
+            <Card className="border border-emerald-200 shadow-sm rounded-md overflow-hidden">
+                <CardHeader className="bg-emerald-950 border-b border-emerald-800 p-6">
                     <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                         <CardTitle className="text-white font-bold tracking-widest uppercase text-center sm:text-left text-lg">
                             Local SQLite Data Buffer (Showing {items.length} records)

@@ -119,25 +119,21 @@ export default async function DashboardPage() {
                 </div>
 
                 {/* LIVE AEPB SATELLITE FEED OVERLAY */}
-                <Card className="border-emerald-900 shadow-2xl relative overflow-hidden bg-black text-white group">
-                    <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-lime-500/50 shadow-[0_0_15px_rgba(132,204,22,0.3)]">
-                        <Satellite className="w-5 h-5 text-lime-400 group-hover:animate-pulse" />
-                        <span className="font-bold text-[10px] md:text-xs tracking-widest text-lime-400 uppercase">Live AEPB Geo-Satellite Feed</span>
+                <Card className="border border-emerald-900 rounded-md relative overflow-hidden bg-black text-white group">
+                    <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-black px-3 py-1.5 rounded-sm border border-emerald-800">
+                        <Satellite className="w-5 h-5 text-lime-400" />
+                        <span className="font-mono text-[10px] md:text-xs tracking-widest text-lime-400 uppercase">Live AEPB Matrix Feed</span>
                         <span className="flex h-2 w-2 ml-1 relative">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-red-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-sm h-2 w-2 bg-red-500"></span>
                         </span>
                     </div>
-                    <CardContent className="p-0 h-[350px] sm:h-[450px] w-full relative">
-                        {/* Live Google Map Satellite iframe pointing to Abuja */}
-                        <iframe
-                            src="https://maps.google.com/maps?q=Abuja,Nigeria&t=k&z=12&ie=UTF8&iwloc=&output=embed"
-                            className="w-full h-full border-0 opacity-80"
-                            sandbox="allow-scripts allow-same-origin"
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade">
-                        </iframe>
-                        {/* Cyber/AI Overlay Elements */}
+                    <CardContent className="p-0 h-[350px] sm:h-[450px] w-full relative z-0">
+                        {/* Interactive React-Leaflet Map replaces static iframe completely */}
+                        <LiveMapWrapper areaStats={areaStats} />
+
+                        {/* Cyber/AI Overlay Elements Flattened */}
+                        <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black to-transparent pointer-events-none z-10"></div>
                         <div className="absolute inset-0 bg-emerald-900/10 pointer-events-none mix-blend-color-dodge"></div>
                         <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-emerald-950/80 to-transparent pointer-events-none"></div>
 
@@ -160,12 +156,12 @@ export default async function DashboardPage() {
 
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
                     {/* AI Zone Priority Map / List */}
-                    <Card className="col-span-1 lg:col-span-4 border-emerald-100 shadow-sm">
-                        <CardHeader className="text-center sm:text-left">
-                            <CardTitle className="text-emerald-950 font-bold text-xl uppercase tracking-wider">AI-Powered Zone Rankings</CardTitle>
-                            <CardDescription>Live predictive risk scores computing priority across all Abuja districts.</CardDescription>
+                    <Card className="col-span-1 lg:col-span-4 border border-emerald-200 shadow-sm rounded-md">
+                        <CardHeader className="text-center sm:text-left border-b border-emerald-100 bg-emerald-50/50 pb-4">
+                            <CardTitle className="text-emerald-950 font-bold text-lg uppercase tracking-wider">Zone Metric Rankings</CardTitle>
+                            <CardDescription className="text-xs font-semibold">Live predictive risk scores computing priority across all Abuja districts.</CardDescription>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="pt-6">
                             <div className="space-y-6">
                                 {areaStats.map((stat: AreaStat, i: number) => (
                                     <div key={stat.id} className="flex items-center">
@@ -194,26 +190,25 @@ export default async function DashboardPage() {
                     </Card>
 
                     {/* Smart Route Recommendations */}
-                    <Card className="col-span-1 lg:col-span-3 border-emerald-100 shadow-sm bg-gradient-to-br from-emerald-900 to-emerald-950 text-emerald-50">
-                        <CardHeader className="text-center sm:text-left">
-                            <CardTitle className="text-lime-400 flex items-center justify-center sm:justify-start font-black uppercase tracking-wider text-lg">
-                                <MapPin className="mr-2 h-5 w-5 animate-bounce" /> Recommended Route
+                    <Card className="col-span-1 lg:col-span-3 border border-emerald-900 shadow-sm bg-emerald-950 text-emerald-50 rounded-md">
+                        <CardHeader className="text-center sm:text-left border-b border-emerald-900 pb-4">
+                            <CardTitle className="text-lime-400 flex items-center justify-center sm:justify-start font-mono uppercase tracking-widest text-sm">
+                                <MapPin className="mr-2 h-4 w-4" /> Optimal Dispatch Path
                             </CardTitle>
-                            <CardDescription className="text-emerald-200 font-medium">Auto-generated optimal pathogen-targeting path.</CardDescription>
                         </CardHeader>
-                        <CardContent>
-                            <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-lime-400 before:to-emerald-900">
+                        <CardContent className="pt-6">
+                            <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-[1px] before:bg-emerald-800">
                                 {areaStats.slice(0, 4).map((stat: AreaStat, i: number) => (
                                     <div key={stat.id} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                                        <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-emerald-950 bg-lime-400 text-emerald-950 font-black shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 tracking-tighter">
+                                        <div className="flex items-center justify-center w-8 h-8 rounded-sm border border-emerald-800 bg-black text-lime-400 font-mono text-sm shadow-sm shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
                                             0{i + 1}
                                         </div>
-                                        <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-emerald-800/80 backdrop-blur p-4 rounded-xl border border-lime-500/30 shadow-xl flex flex-col hover:bg-emerald-800 transition-colors">
+                                        <div className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] bg-black p-3 rounded-sm border border-emerald-800 shadow-sm flex flex-col">
                                             <div className="flex items-center justify-between mb-1">
-                                                <h4 className="font-bold text-white text-center w-full sm:w-auto sm:text-left">{stat.area}</h4>
-                                                <span className={`text-[9px] font-black uppercase px-2 py-1 rounded-full whitespace-nowrap hidden sm:inline-block ${stat.riskScore > 75 ? 'bg-red-500 text-white shadow-[0_0_10px_rgba(239,68,68,0.5)]' : 'bg-orange-500 text-white'}`}>TARGET</span>
+                                                <h4 className="font-mono text-white text-sm text-center w-full sm:w-auto sm:text-left">{stat.area}</h4>
+                                                <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-sm whitespace-nowrap hidden sm:inline-block ${stat.riskScore > 75 ? 'bg-red-500/20 text-red-500 border border-red-500/50' : 'bg-orange-500/20 text-orange-400 border border-orange-500/50'}`}>TARGET</span>
                                             </div>
-                                            <span className="text-xs text-emerald-200/80 truncate text-center sm:text-left">{stat.insight}</span>
+                                            <span className="text-xs text-emerald-400/80 truncate text-center sm:text-left font-medium">{stat.insight}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -223,13 +218,12 @@ export default async function DashboardPage() {
                 </div>
 
                 {/* Live Incoming Reports Table */}
-                <Card className="border-emerald-100 shadow-sm">
-                    <CardHeader className="text-center">
-                        <CardTitle className="text-emerald-950 font-black uppercase tracking-widest text-xl">Civic Data Stream</CardTitle>
-                        <CardDescription>Live incoming geospatial anomaly reports globally centered.</CardDescription>
+                <Card className="border border-emerald-200 shadow-sm rounded-md overflow-hidden">
+                    <CardHeader className="text-center sm:text-left bg-emerald-950 border-b border-emerald-900 p-4">
+                        <CardTitle className="text-white font-mono uppercase tracking-widest text-sm">System Data Stream</CardTitle>
                     </CardHeader>
-                    <CardContent>
-                        <div className="w-full overflow-x-auto rounded-xl border border-emerald-100">
+                    <CardContent className="p-0">
+                        <div className="w-full overflow-x-auto">
                             <table className="w-full text-sm">
                                 <thead className="bg-emerald-50/80 border-b border-emerald-100">
                                     <tr className="text-emerald-800 font-bold uppercase tracking-wider text-xs">

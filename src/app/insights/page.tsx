@@ -3,7 +3,7 @@ import { Brain, Database, ShieldCheck, Zap } from 'lucide-react'
 
 export default function InsightsPage() {
     return (
-        <div className="container py-12 px-4 md:px-6">
+        <div className="container mx-auto py-12 px-4 md:px-6">
             <div className="mb-16 max-w-[800px] mx-auto text-center">
                 <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-emerald-950 mb-6 uppercase">Intelligence Layer</h1>
                 <p className="text-xl text-muted-foreground">

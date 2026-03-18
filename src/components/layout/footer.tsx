@@ -1,14 +1,13 @@
 import Link from 'next/link'
-import { Leaf } from 'lucide-react'
+import Image from 'next/image'
 
 export function Footer() {
     return (
-        <footer className="w-full border-t bg-emerald-950 text-emerald-50">
-            <div className="container flex flex-col md:flex-row items-center justify-between py-6 gap-4">
-                <div className="flex items-center space-x-2">
-                    <Leaf className="h-5 w-5 text-emerald-400" />
-                    <span className="font-semibold text-lg">WasteWise AI</span>
-                </div>
+        <footer className="w-full border-t border-emerald-900 bg-emerald-950 text-emerald-50">
+            <div className="container mx-auto flex flex-col md:flex-row items-center justify-between py-6 gap-6 px-4">
+                <Link href="/" className="flex items-center opacity-90 hover:opacity-100 transition-opacity">
+                    <Image src="/wastewise-logo.png" alt="WasteWise AI Logo" width={140} height={40} className="object-contain" />
+                </Link>
                 <p className="text-sm text-emerald-200">
                     A NextGen Knowledge Showcase MVP. Predictive civic tech for cleaner communities.
                 </p>

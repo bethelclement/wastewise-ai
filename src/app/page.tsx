@@ -7,7 +7,7 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-[calc(100vh-4rem)]">
       {/* Hero Section */}
       <section className="w-full py-24 md:py-32 lg:py-40 bg-emerald-950 text-emerald-50">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_500px]">
             <div className="flex flex-col justify-center space-y-8">
               <div className="space-y-4">

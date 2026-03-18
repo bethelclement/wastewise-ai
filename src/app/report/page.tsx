@@ -35,7 +35,7 @@ export default function ReportPage() {
 
     if (submitted) {
         return (
-            <div className="container max-w-lg py-24 px-4 flex flex-col items-center text-center space-y-6">
+            <div className="container mx-auto max-w-lg py-24 px-4 flex flex-col items-center text-center space-y-6">
                 <div className="p-4 bg-lime-100 rounded-full">
                     <CheckCircle2 className="w-12 h-12 text-lime-600" />
                 </div>
@@ -68,7 +68,7 @@ export default function ReportPage() {
     }
 
     return (
-        <div className="container max-w-2xl py-12 px-4 md:px-0">
+        <div className="container mx-auto max-w-2xl py-12 px-4 md:px-0">
             <div className="mb-8 space-y-2">
                 <h1 className="text-3xl font-bold text-emerald-950">Report Waste Issue</h1>
                 <p className="text-muted-foreground">
