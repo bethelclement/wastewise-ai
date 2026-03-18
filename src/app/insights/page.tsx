@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Brain, Database, ShieldCheck, Zap } from 'lucide-react'
+import InteractiveSimulator from "./interactive-simulator"
 
 export default function InsightsPage() {
     return (
@@ -56,6 +57,8 @@ export default function InsightsPage() {
                     <ScoreCard title="Base Urgency" description="User declared status" value="15%" />
                 </div>
             </div>
+
+            <InteractiveSimulator />
 
             <Card className="border-orange-100 bg-orange-50/50 shadow-sm">
                 <CardHeader>
