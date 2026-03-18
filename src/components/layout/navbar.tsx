@@ -18,7 +18,7 @@ export function Navbar() {
                         </span>
                     </span>
                 </Link>
-                <nav className="flex items-center space-x-6 text-sm font-medium">
+                <nav className="flex items-center gap-5 md:space-x-6 text-sm font-medium overflow-x-auto no-scrollbar whitespace-nowrap px-2 pb-1 md:pb-0">
                     <Link href="/report" className="transition-colors hover:text-emerald-600">Report Waste</Link>
                     <Link href="/dashboard" className="transition-colors hover:text-emerald-600">Dashboard</Link>
                     <Link href="/insights" className="transition-colors hover:text-emerald-600">AI Insights</Link>
