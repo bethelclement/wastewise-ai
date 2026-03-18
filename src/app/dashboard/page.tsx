@@ -4,12 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { AlertTriangle, MapPin, Truck, TrendingUp, BarChart, Satellite, Radar } from 'lucide-react'
 import { Progress } from "@/components/ui/progress"
 import { format } from "date-fns"
-import nextDynamic from 'next/dynamic'
-
-const LiveMap = nextDynamic(() => import('@/components/dashboard/live-map'), {
-    ssr: false,
-    loading: () => <div className="w-full h-full flex flex-col items-center justify-center bg-black text-lime-500 font-mono tracking-widest text-sm z-0 absolute inset-0"><Radar className="w-10 h-10 animate-spin mb-4" /><span>INITIALIZING SATELLITE UPLINK...</span></div>
-})
+import LiveMapWrapper from '@/components/dashboard/live-map-wrapper'
 
 const prisma = new PrismaClient()
 

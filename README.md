@@ -1,7 +1,7 @@
 # WasteWise AI 🌍
 
 <br />
-<img src="./logo.png" width="180" alt="WasteWise AI Logo" />
+<img src="./logo.svg" width="180" alt="WasteWise AI Minimalist Logo" />
 <br />
 
 🔥 **Live MVP Demo:** [https://wastewise-ai.vercel.app](https://wastewise-ai.vercel.app)
