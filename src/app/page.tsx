@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { ArrowRight, Leaf, ShieldAlert, BarChart3, Users, Droplet } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { ArrowRight, Recycle, Sparkles, ShieldAlert, BarChart3, Users, Droplet } from 'lucide-react'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 export default function LandingPage() {
   return (
@@ -19,16 +20,12 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="flex flex-col gap-3 min-[400px]:flex-row">
-                <Link href="/dashboard">
-                  <Button size="lg" className="w-full bg-lime-500 text-emerald-950 hover:bg-lime-400 font-semibold shadow-lg shadow-lime-500/20">
-                    Open Dashboard
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                <Link href="/dashboard" className={cn(buttonVariants({ size: "lg" }), "w-full bg-lime-500 text-emerald-950 hover:bg-lime-400 font-semibold shadow-lg shadow-lime-500/20")}>
+                  Open Dashboard
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
-                <Link href="/report">
-                  <Button size="lg" variant="outline" className="w-full border-emerald-500 text-emerald-500 hover:bg-emerald-900/50">
-                    Report Waste
-                  </Button>
+                <Link href="/report" className={cn(buttonVariants({ size: "lg", variant: "outline" }), "w-full border-emerald-500 text-emerald-500 hover:bg-emerald-900/50")}>
+                  Report Waste
                 </Link>
               </div>
             </div>
@@ -36,11 +33,18 @@ export default function LandingPage() {
               <div className="relative w-full aspect-square max-w-[400px] rounded-full bg-emerald-900/50 border border-emerald-800 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-x-0 bottom-0 top-1/2 bg-gradient-to-t from-emerald-900/40 to-transparent" />
                 <div className="z-10 flex flex-col items-center gap-4 text-center">
-                  <div className="p-4 rounded-3xl bg-lime-500 shadow-xl shadow-lime-500/20">
-                    <Leaf className="h-16 w-16 text-emerald-950" />
+                  <div className="p-4 rounded-3xl bg-lime-500 shadow-xl shadow-lime-500/20 relative">
+                    <Recycle className="h-16 w-16 text-emerald-950" />
+                    <Sparkles className="h-6 w-6 absolute -top-2 -right-2 text-white animate-pulse" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="text-2xl font-bold">WasteWise AI</h3>
+                    <h3 className="text-2xl font-bold flex items-center justify-center gap-2">
+                      WasteWise
+                      <span className="bg-lime-500/20 text-lime-400 border border-lime-500/30 text-[10px] px-2 py-0.5 rounded-sm uppercase tracking-wider flex items-center">
+                        <span className="w-1.5 h-1.5 rounded-full bg-lime-400 mr-1 animate-pulse"></span>
+                        AI Predicted
+                      </span>
+                    </h3>
                     <p className="text-sm text-emerald-300">Intelligent Civic Tracker</p>
                   </div>
                 </div>
@@ -121,10 +125,8 @@ export default function LandingPage() {
           <p className="max-w-[600px] mx-auto text-emerald-100/90 mb-8">
             Experience the MVP admin dashboard designed for waste management supervisors and agency staff in Abuja.
           </p>
-          <Link href="/dashboard">
-            <Button size="lg" className="bg-white text-emerald-900 hover:bg-emerald-50 font-bold">
-              View Live Demo Dashboard
-            </Button>
+          <Link href="/dashboard" className={cn(buttonVariants({ size: "lg" }), "bg-white text-emerald-900 hover:bg-emerald-50 font-bold")}>
+            View Live Demo Dashboard
           </Link>
         </div>
       </section>

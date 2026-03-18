@@ -1,6 +1,8 @@
 # WasteWise AI 🌍
 
-![NextGen Knowledge Showcase Banner](./banner.jpg)
+<br />
+<img src="./logo.png" width="180" alt="WasteWise AI Logo" />
+<br />
 
 🔥 **Live MVP Demo:** [https://wastewise-ai.vercel.app](https://wastewise-ai.vercel.app)
 
