@@ -104,4 +104,31 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  /* React Leaflet Map Theming */
+  .custom-leaflet-popup .leaflet-popup-content-wrapper,
+  .custom-leaflet-popup .leaflet-popup-tip {
+    background-color: #022c22 !important;
+    /* emerald-950 */
+    color: #ecfdf5 !important;
+    border: 1px solid #065f46 !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
+    border-radius: 12px !important;
+  }
+
+  .custom-leaflet-popup .leaflet-popup-close-button {
+    color: #34d399 !important;
+    /* emerald-400 */
+    font-size: 20px !important;
+    padding: 6px !important;
+  }
+
+  .leaflet-container {
+    background-color: #000000 !important;
+  }
+
+  .leaflet-control-attribution {
+    display: none !important;
+    /* Cleaner UI */
+  }
 }
