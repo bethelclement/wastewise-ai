@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Report {
+  id           String   @id @default(uuid())
+  fullName     String
+  phoneNumber  String?
+  area         String
+  street       String
+  wasteType    String
+  urgency      String
+  notes        String?
+  status       String   @default("New")
+  priorityScore Float   @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model AreaStat {
+  id           String   @id @default(uuid())
+  area         String   @unique
+  riskScore    Float    @default(0)
+  riskLevel    String   @default("Low") // Low, Moderate, High, Critical
+  insight      String?  
+  updatedAt    DateTime @updatedAt
+}
