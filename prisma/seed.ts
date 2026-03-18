@@ -2,72 +2,99 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-const areas = ['Wuse', 'Garki', 'Jabi', 'Kubwa', 'Lugbe', 'Maitama', 'Nyanya']
-const wasteTypes = ['Mixed household waste', 'Organic waste', 'Plastic waste', 'Recyclables', 'Illegal dumping', 'Missed pickup', 'Bin overflow']
-const urgencies = ['Low', 'Medium', 'High', 'Critical']
-const statuses = ['New', 'Assigned', 'In progress', 'Resolved']
+// Real Abuja AEPB contextual data based on deep research
+const locations = [
+    { area: 'Wuse', street: 'Addis Ababa Crescent', context: 'Liquid waste spilling into walkways and drainage.' },
+    { area: 'Wuse', street: 'Aminu Kano Crescent', context: 'Commercial waste from night traders piling up.' },
+    { area: 'Jabi', street: 'Jabi Motor Park', context: 'Open defecation and massive refuse dumps near traffic lights.' },
+    { area: 'Gwarimpa', street: '3rd Avenue', context: 'Contractor failed to evacuate waste for weeks.' },
+    { area: 'Garki', street: 'Area 1 Market', context: 'Market waste spilling onto the main road, blocking traffic.' },
+    { area: 'Garki', street: 'Ahmadu Bello Way', context: 'Indiscriminate dumping by illegal night-time operators.' },
+    { area: 'Kubwa', street: 'Phase 4', context: 'Overflowing bins creating mosquito breeding grounds.' },
+    { area: 'Lugbe', street: 'FHA Estate', context: 'Heaps of uncollected garbage emitting pungent odors.' },
+    { area: 'Nyanya', street: 'Nyanya Market Axis', context: 'Solid waste mismanaged, mixing with floodwater.' }
+]
 
-// Helper to get random item
-const randomItem = (arr: any[]) => arr[Math.floor(Math.random() * arr.length)]
+const wasteTypes = [
+    'Mixed household waste',
+    'Organic waste',
+    'Plastic waste',
+    'Illegal dumping',
+    'Missed pickup',
+    'Bin overflow',
+    'Liquid waste / Sewage'
+]
 
-// Generates random Date within the last 7 days
+// Generates random Date within the last 14 days
 const randomDate = () => {
     const d = new Date()
-    d.setDate(d.getDate() - Math.floor(Math.random() * 7))
+    d.setDate(d.getDate() - Math.floor(Math.random() * 14))
     d.setHours(Math.floor(Math.random() * 24))
     d.setMinutes(Math.floor(Math.random() * 60))
     return d
 }
 
 // Generate an individual report
-const generateReport = () => {
-    // Let's create some logical correlation for realistic demo data:
-    // e.g. Wuse and Lugbe have more "Missed pickup" and "Critical" issues
-    const area = Math.random() > 0.6 ? randomItem(['Wuse', 'Lugbe']) : randomItem(areas)
+const generateReport = (index: number) => {
+    const loc = locations[index % locations.length]
 
-    // If Wuse or Lugbe, slightly higher chance of Critical/High
-    let urgency = randomItem(urgencies)
-    if ((area === 'Wuse' || area === 'Lugbe') && Math.random() > 0.5) urgency = 'Critical'
+    // Realism logic:
+    let urgency = 'Medium'
+    let wasteType = 'Mixed household waste'
+    let notes = loc.context
 
-    let wasteType = randomItem(wasteTypes)
-    if (urgency === 'Critical') wasteType = randomItem(['Missed pickup', 'Bin overflow', 'Illegal dumping'])
+    if (loc.context.includes('Liquid waste') || loc.context.includes('Open defecation')) {
+        urgency = 'Critical'
+        wasteType = 'Liquid waste / Sewage'
+    } else if (loc.context.includes('mosquito breeding') || loc.context.includes('pungent odors')) {
+        urgency = 'High'
+        wasteType = 'Bin overflow'
+    } else if (loc.context.includes('night traders') || loc.context.includes('indiscriminate')) {
+        urgency = 'High'
+        wasteType = 'Illegal dumping'
+    } else if (loc.context.includes('Contractor failed')) {
+        urgency = 'High'
+        wasteType = 'Missed pickup'
+    }
 
-    // More recent ones are 'New', older ones might be 'Resolved'
     const date = randomDate()
     const daysOld = Math.floor((Date.now() - date.getTime()) / (1000 * 60 * 60 * 24))
 
     let status = 'New'
-    if (daysOld > 5) status = 'Resolved'
-    else if (daysOld > 2) status = randomItem(['Assigned', 'In progress'])
-    else if (daysOld > 1) status = randomItem(['New', 'Assigned'])
+    if (daysOld > 10) status = 'Resolved'
+    else if (daysOld > 5) status = 'In progress'
+    else if (daysOld > 2) status = 'Assigned'
+
+    // Generate authentic sounding Nigerian names
+    const firstNames = ['Chidi', 'Ngozi', 'Aisha', 'Fatima', 'Oluwaseun', 'Ade', 'Hassan', 'Binta', 'Emeka', 'Yusuf']
+    const lastNames = ['Okafor', 'Abubakar', 'Adeyemi', 'Ibrahim', 'Nwosu', 'Bello', 'Eze', 'Musa', 'Okoro', 'Sanusi']
 
     return {
-        fullName: `Resident ${Math.floor(Math.random() * 1000)}`,
-        phoneNumber: `080${Math.floor(Math.random() * 100000000)}`,
-        area,
-        street: `Street ${Math.floor(Math.random() * 100)}`,
+        fullName: `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`,
+        phoneNumber: `080${Math.floor(10000000 + Math.random() * 90000000)}`,
+        area: loc.area,
+        street: loc.street,
         wasteType,
         urgency,
-        notes: `Mock notes for a ${urgency.toLowerCase()} incident involving ${wasteType.toLowerCase()}.`,
+        notes,
         status,
-        priorityScore: 0, // We'll compute this dynamically in app, or set dummy here
+        priorityScore: 0,
         createdAt: date,
     }
 }
 
 async function main() {
-    console.log('Seeding Database...')
-    // Clean up existing data to be safe
+    console.log('Seeding Database with Realistic AEPB Data...')
     await prisma.report.deleteMany({})
     await prisma.areaStat.deleteMany({})
 
-    const reports = Array.from({ length: 60 }).map(generateReport)
+    const reports = Array.from({ length: 85 }).map((_, i) => generateReport(i))
 
     for (const r of reports) {
         await prisma.report.create({ data: r })
     }
 
-    console.log(`Successfully seeded ${reports.length} reports!`)
+    console.log(`Successfully seeded ${reports.length} realistic reports!`)
 }
 
 main()

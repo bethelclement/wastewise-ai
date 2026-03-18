@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, AreaStat, Report } from '@prisma/client'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { AlertTriangle, MapPin, Truck, TrendingUp, BarChart } from 'lucide-react'
@@ -20,8 +20,8 @@ export default async function DashboardPage() {
     const areaStats = await prisma.areaStat.findMany({
         orderBy: { riskScore: 'desc' }
     })
-    const highRiskCount = areaStats.filter(a => a.riskScore > 75).length
-    const avgPriority = areaStats.length ? Math.round(areaStats.reduce((acc, curr) => acc + curr.riskScore, 0) / areaStats.length) : 0
+    const highRiskCount = areaStats.filter((a: AreaStat) => a.riskScore > 75).length
+    const avgPriority = areaStats.length ? Math.round(areaStats.reduce((acc: number, curr: AreaStat) => acc + curr.riskScore, 0) / areaStats.length) : 0
 
     // 3. Fetch Recent Reports
     const recentReports = await prisma.report.findMany({
@@ -109,7 +109,7 @@ export default async function DashboardPage() {
                         </CardHeader>
                         <CardContent>
                             <div className="space-y-6">
-                                {areaStats.map((stat, i) => (
+                                {areaStats.map((stat: AreaStat, i: number) => (
                                     <div key={stat.id} className="flex items-center">
                                         <div className="space-y-1 w-full flex-1">
                                             <div className="flex items-center justify-between w-full">
@@ -126,7 +126,7 @@ export default async function DashboardPage() {
                                             <Progress
                                                 value={stat.riskScore}
                                                 className="h-1.5 mt-2 bg-emerald-100"
-                                                color={stat.riskScore > 75 ? "bg-red-500" : stat.riskScore > 50 ? "bg-orange-500" : "bg-emerald-500"}
+                                                indicatorColor={stat.riskScore > 75 ? "bg-red-500" : stat.riskScore > 50 ? "bg-orange-500" : "bg-emerald-500"}
                                             />
                                         </div>
                                     </div>
@@ -143,7 +143,7 @@ export default async function DashboardPage() {
                         </CardHeader>
                         <CardContent>
                             <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-lime-400 before:to-emerald-800">
-                                {areaStats.slice(0, 4).map((stat, i) => (
+                                {areaStats.slice(0, 4).map((stat: AreaStat, i: number) => (
                                     <div key={stat.id} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                                         <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-emerald-900 bg-lime-400 text-emerald-950 font-bold shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
                                             {i + 1}
@@ -182,7 +182,7 @@ export default async function DashboardPage() {
                                     </tr>
                                 </thead>
                                 <tbody className="[&_tr:last-child]:border-0">
-                                    {recentReports.map(report => (
+                                    {recentReports.map((report: Report) => (
                                         <tr key={report.id} className="border-b border-emerald-50 transition-colors hover:bg-emerald-50/50">
                                             <td className="p-4 align-middle font-mono text-xs">{report.id.split('-')[0]}</td>
                                             <td className="p-4 align-middle font-medium text-emerald-900">{report.area}</td>
@@ -195,9 +195,9 @@ export default async function DashboardPage() {
                                             </td>
                                             <td className="p-4 align-middle">
                                                 <span className={`px-2 py-1 rounded-full text-xs font-semibold ${report.status === 'New' ? 'bg-blue-100 text-blue-700' :
-                                                        report.status === 'Assigned' ? 'bg-purple-100 text-purple-700' :
-                                                            report.status === 'Resolved' ? 'bg-emerald-100 text-emerald-700' :
-                                                                'bg-amber-100 text-amber-700'
+                                                    report.status === 'Assigned' ? 'bg-purple-100 text-purple-700' :
+                                                        report.status === 'Resolved' ? 'bg-emerald-100 text-emerald-700' :
+                                                            'bg-amber-100 text-amber-700'
                                                     }`}>
                                                     {report.status}
                                                 </span>

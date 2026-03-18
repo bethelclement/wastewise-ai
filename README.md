@@ -1,6 +1,8 @@
 # WasteWise AI 🌍
 
-![WasteWise AI Banner](https://via.placeholder.com/800x400/0f3f2d/ffffff?text=WasteWise+AI)
+![NextGen Knowledge Showcase Banner](./banner.jpg)
+
+🔥 **Live MVP Demo:** [https://wastewise-ai.vercel.app](https://wastewise-ai.vercel.app)
 
 > **Predict waste. Prioritize pickup. Keep communities clean.**
 

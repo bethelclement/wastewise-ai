@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Report } from '@prisma/client'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { format } from "date-fns"
@@ -55,7 +55,7 @@ export default async function DemoDataPage({
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-emerald-50">
-                                {items.map((item) => (
+                                {items.map((item: Report) => (
                                     <tr key={item.id} className="hover:bg-emerald-50/30 transition-colors">
                                         <td className="px-6 py-4 font-mono text-[10px] text-muted-foreground">{item.id}</td>
                                         <td className="px-6 py-4 font-semibold text-emerald-900">{item.area}</td>
