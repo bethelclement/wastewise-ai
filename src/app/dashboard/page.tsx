@@ -24,7 +24,7 @@ const FALLBACK_RECENT_REPORTS = [
     { id: 'wsw-103', area: 'Wuse Zone 4', urgency: 'High', wasteType: 'Plastic/Recyclable', status: 'Resolved', createdAt: new Date(Date.now() - 7200000) },
     { id: 'wsw-104', area: 'Kubwa', urgency: 'Medium', wasteType: 'General Solid Waste', status: 'New', createdAt: new Date(Date.now() - 86400000) },
     { id: 'wsw-105', area: 'Maitama', urgency: 'Low', wasteType: 'Plastic/Recyclable', status: 'Assigned', createdAt: new Date(Date.now() - 172800000) },
-] as Report[];
+] as unknown as Report[];
 
 export default async function DashboardPage() {
     let totalReports = 142;
@@ -248,7 +248,7 @@ export default async function DashboardPage() {
                                             <td className="p-4 align-middle text-emerald-800 font-medium text-center">{report.wasteType}</td>
                                             <td className="p-4 align-middle text-center">
                                                 <Badge variant="outline" className={`justify-center ${report.urgency === 'Critical' ? 'border-red-500 bg-red-50 text-red-700' :
-                                                        report.urgency === 'High' ? 'border-orange-500 bg-orange-50 text-orange-700' : 'border-emerald-500 bg-emerald-50 text-emerald-700'
+                                                    report.urgency === 'High' ? 'border-orange-500 bg-orange-50 text-orange-700' : 'border-emerald-500 bg-emerald-50 text-emerald-700'
                                                     }`}>{report.urgency}</Badge>
                                             </td>
                                             <td className="p-4 align-middle text-center">

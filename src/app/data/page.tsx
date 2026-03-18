@@ -9,20 +9,21 @@ const prisma = new PrismaClient()
 export const dynamic = 'force-dynamic'
 
 const FALLBACK_DEMO_DATA = [
-    { id: 'wsw-5fa-43k', area: 'Lugbe FHA', urgency: 'Critical', riskScore: 88, wasteType: 'Liquid waste / Sewage', status: 'New', createdAt: new Date() },
-    { id: 'wsw-2bc-81m', area: 'Jabi Motor Park', urgency: 'High', riskScore: 76, wasteType: 'Organic/Food Waste', status: 'Assigned', createdAt: new Date(Date.now() - 3600000) },
-    { id: 'wsw-9zx-12r', area: 'Wuse Zone 4', urgency: 'High', riskScore: 65, wasteType: 'Plastic/Recyclable', status: 'Resolved', createdAt: new Date(Date.now() - 7200000) },
-    { id: 'wsw-3lp-98o', area: 'Kubwa', urgency: 'Medium', riskScore: 42, wasteType: 'General Solid Waste', status: 'New', createdAt: new Date(Date.now() - 86400000) },
-    { id: 'wsw-7qw-55y', area: 'Maitama', urgency: 'Low', riskScore: 24, wasteType: 'Plastic/Recyclable', status: 'Assigned', createdAt: new Date(Date.now() - 172800000) },
-    { id: 'wsw-1ty-00k', area: 'Gwarinpa Estate', urgency: 'Critical', riskScore: 92, wasteType: 'Medical / Hazardous', status: 'New', createdAt: new Date(Date.now() - 212800000) },
-] as Report[];
+    { id: 'wsw-5fa-43k', area: 'Lugbe FHA', urgency: 'Critical', priorityScore: 88, wasteType: 'Liquid waste / Sewage', status: 'New', createdAt: new Date() },
+    { id: 'wsw-2bc-81m', area: 'Jabi Motor Park', urgency: 'High', priorityScore: 76, wasteType: 'Organic/Food Waste', status: 'Assigned', createdAt: new Date(Date.now() - 3600000) },
+    { id: 'wsw-9zx-12r', area: 'Wuse Zone 4', urgency: 'High', priorityScore: 65, wasteType: 'Plastic/Recyclable', status: 'Resolved', createdAt: new Date(Date.now() - 7200000) },
+    { id: 'wsw-3lp-98o', area: 'Kubwa', urgency: 'Medium', priorityScore: 42, wasteType: 'General Solid Waste', status: 'New', createdAt: new Date(Date.now() - 86400000) },
+    { id: 'wsw-7qw-55y', area: 'Maitama', urgency: 'Low', priorityScore: 24, wasteType: 'Plastic/Recyclable', status: 'Assigned', createdAt: new Date(Date.now() - 172800000) },
+    { id: 'wsw-1ty-00k', area: 'Gwarinpa Estate', urgency: 'Critical', priorityScore: 92, wasteType: 'Medical / Hazardous', status: 'New', createdAt: new Date(Date.now() - 212800000) },
+] as unknown as Report[];
 
 export default async function DemoDataPage({
     searchParams,
 }: {
-    searchParams?: { [key: string]: string | string[] | undefined };
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-    const filterArea = typeof searchParams?.area === 'string' ? searchParams.area : undefined
+    const resolvedParams = await searchParams;
+    const filterArea = typeof resolvedParams?.area === 'string' ? resolvedParams.area : undefined
 
     let items = FALLBACK_DEMO_DATA;
 
@@ -91,15 +92,15 @@ export default async function DemoDataPage({
                                         </td>
                                         <td className="px-6 py-4 text-center">
                                             <Badge variant="outline" className={`justify-center font-bold px-3 py-1 ${item.urgency === 'Critical' ? 'border-red-600 bg-red-50 text-red-700' :
-                                                    item.urgency === 'High' ? 'border-orange-500 bg-orange-50 text-orange-700' :
-                                                        'border-emerald-500 bg-emerald-50 text-emerald-700'
+                                                item.urgency === 'High' ? 'border-orange-500 bg-orange-50 text-orange-700' :
+                                                    'border-emerald-500 bg-emerald-50 text-emerald-700'
                                                 }`}>
                                                 {item.urgency}
                                             </Badge>
                                         </td>
                                         <td className="px-6 py-4 text-center font-black">
-                                            <span className={`${item.riskScore > 75 ? 'text-red-600' : item.riskScore > 50 ? 'text-orange-600' : 'text-emerald-600'}`}>
-                                                {item.riskScore.toFixed(0)} <span className="text-muted-foreground/50 font-medium text-xs">/100</span>
+                                            <span className={`${(item as any).priorityScore > 75 ? 'text-red-600' : (item as any).priorityScore > 50 ? 'text-orange-600' : 'text-emerald-600'}`}>
+                                                {((item as any).priorityScore || 0).toFixed(0)} <span className="text-muted-foreground/50 font-medium text-xs">/100</span>
                                             </span>
                                         </td>
                                         <td className="px-6 py-4 text-emerald-700/60 text-xs font-semibold text-center whitespace-nowrap">
