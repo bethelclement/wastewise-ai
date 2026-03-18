@@ -47,7 +47,7 @@ The underlying architecture operates on modern, extremely lightweight React edge
 
 **0:30 | Learning Application (20%)**
 *(Visual: Click to "Demo Data" at `/data`)*
-"Applying my 3MTT technical training, I curated real-world simulated reporting datasets. What you are looking at is structured relational SQL data that maps geographic zones in the FCT to urgency severities, proving I can turn unstructured citizen inputs into clean, operational analytics pipelines."
+"Applying my 3MTT AI/ML track training, I curated real-world simulated reporting datasets. What you are looking at is structured relational data that maps geographic zones in the FCT to urgency severities, proving I can turn unstructured citizen inputs into clean analytics pipelines."
 
 **1:00 | Technical Quality (25%)**
 *(Visual: Click to "AI Insights" at `/insights`)*

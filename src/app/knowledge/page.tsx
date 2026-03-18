@@ -28,7 +28,7 @@ export default function KnowledgePage() {
                                 The <strong>WasteWise AI</strong> project is explicitly designed not just as a software application, but as a transparent, open-learning ecosystem to fulfill the Nigerian Federal Ministry of Communications' <strong>3MTT Knowledge Sharing</strong> initiative. 
                             </p>
                             <p>
-                                Building this predictive infrastructure required merging insights from three distinct learning modules: <strong>Data Analyst Workflows</strong> (structuring relational data logic and cleaning datasets), <strong>Beginner Python Programming</strong> (developing the initial logic loops for the risk algorithms), and <strong>Machine Learning</strong> (applying K-Nearest Neighbors to predict bin overflow based on geospatial clustering).
+                                Building this predictive infrastructure required merging insights from the <strong>AI/ML NextGen track</strong>. It involved integrating raw data structuring and applying <strong>K-Nearest Neighbors (KNN)</strong> machine learning logic to predict bin overflow based on geospatial clustering and waste decay severity.
                             </p>
                             <p>
                                 By open-sourcing the thought process and the analytical routing logic, this project serves as a replicable template for other civic tech developers looking to optimize urban resource management.
@@ -111,7 +111,7 @@ export default function KnowledgePage() {
                                 </div>
                                 <div className="p-6 grid md:grid-cols-[1fr_3fr] gap-4 items-center hover:bg-white/5 transition-colors">
                                     <div className="font-bold text-lg text-emerald-300">4. Learning Application <span className="text-lime-400 text-xs ml-2 tracking-widest">(20%)</span></div>
-                                    <div className="text-emerald-50/80 text-justify text-sm leading-relaxed">Demonstrates absolute mastery over the Data Analyst and AI curriculums. Simulated mock datasets were curated via pandas/Excel, and SQL relational operations were deployed using Prisma ORM.</div>
+                                    <div className="text-emerald-50/80 text-justify text-sm leading-relaxed">Demonstrates absolute mastery over the AI/ML curriculum. Simulated mock datasets were curated, and Machine Learning heuristic models were deployed directly into the application matrix to compute spatial risks.</div>
                                 </div>
                                 <div className="p-6 grid md:grid-cols-[1fr_3fr] gap-4 items-center hover:bg-white/5 transition-colors">
                                     <div className="font-bold text-lg text-emerald-300">5. Presentation <span className="text-lime-400 text-xs ml-2 tracking-widest">(15%)</span></div>
