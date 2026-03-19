@@ -120,12 +120,12 @@ export default async function DashboardPage() {
 
                 {/* LIVE AEPB SATELLITE FEED OVERLAY */}
                 <Card className="border border-emerald-900 rounded-md relative overflow-hidden bg-black text-white group">
-                    <div className="absolute top-4 left-4 z-10 flex items-center gap-2 bg-black px-3 py-1.5 rounded-sm border border-emerald-800">
-                        <Satellite className="w-5 h-5 text-lime-400" />
-                        <span className="font-mono text-[10px] md:text-xs tracking-widest text-lime-400 uppercase">Live AEPB Matrix Feed</span>
-                        <span className="flex h-2 w-2 ml-1 relative">
+                    <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 bg-black/80 px-2 py-1 rounded-sm border border-emerald-800">
+                        <Satellite className="w-3.5 h-3.5 text-lime-400" />
+                        <span className="font-mono text-[9px] tracking-widest text-lime-400 uppercase">AEPB Feed</span>
+                        <span className="flex h-1.5 w-1.5 ml-0.5 relative">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-red-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-sm h-2 w-2 bg-red-500"></span>
+                            <span className="relative inline-flex rounded-sm h-1.5 w-1.5 bg-red-500"></span>
                         </span>
                     </div>
                     <CardContent className="p-0 h-[350px] sm:h-[450px] w-full relative z-0">
