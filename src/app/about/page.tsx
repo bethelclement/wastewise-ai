@@ -3,7 +3,7 @@ import { Leaf, Award, Map, TrendingUp } from 'lucide-react'
 
 export default function AboutPage() {
     return (
-        <div className="container max-w-4xl py-12 px-4 md:px-6">
+        <div className="container max-w-4xl py-12 px-4 md:px-6 mx-auto">
             <div className="mb-12 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-emerald-950 mb-4">About WasteWise AI</h1>
                 <p className="text-xl text-muted-foreground">
@@ -14,15 +14,15 @@ export default function AboutPage() {
             <div className="space-y-16">
                 <section className="text-center">
                     <h2 className="text-3xl font-black text-emerald-950 mb-6 uppercase tracking-widest inline-block border-b-2 border-emerald-500 pb-2">The Problem</h2>
-                    <p className="text-lg text-muted-foreground leading-relaxed text-justify">
+                    <p className="text-lg text-muted-foreground leading-relaxed text-justify max-w-2xl mx-auto">
                         In rapidly expanding urban centers like Abuja, waste management agencies rely heavily on reactive cleanup. Collection trucks operate on static routes, entirely unaware of localized overflow crises until severe environmental hazard or public complaint occurs. This leads to inefficient fuel usage, aesthetic degradation of communities, and increased public health risks.
                     </p>
                 </section>
 
                 <section className="text-center">
                     <h2 className="text-3xl font-black text-emerald-950 mb-6 uppercase tracking-widest inline-block border-b-2 border-emerald-500 pb-2">3MTT Learning Application</h2>
-                    <p className="text-lg text-muted-foreground leading-relaxed mb-6 text-justify">
-                        This MVP serves as a comprehensive capstone applying the core modules from the 3MTT learning tract:
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-6 text-justify max-w-2xl mx-auto">
+                        This MVP serves as a comprehensive capstone applying the core modules from the 3MTT AI/ML learning track:
                     </p>
                     <ul className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 mb-12">
                         <li className="flex flex-col p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border border-emerald-100 text-left">
@@ -45,7 +45,7 @@ export default function AboutPage() {
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-bold text-emerald-900 mb-6 border-b pb-2">Expected Impact</h2>
+                    <h2 className="text-2xl font-bold text-emerald-900 mb-6 border-b pb-2 text-center">Expected Impact</h2>
                     <div className="grid sm:grid-cols-2 gap-6">
                         <ImpactCard
                             icon={<Leaf className="w-6 h-6" />}
@@ -71,7 +71,7 @@ export default function AboutPage() {
                 </section>
 
                 <section className="bg-emerald-50 p-8 rounded-2xl border border-emerald-100">
-                    <h2 className="text-2xl font-bold text-emerald-900 mb-4">Scalability Roadmap</h2>
+                    <h2 className="text-2xl font-bold text-emerald-900 mb-4 text-center">Scalability Roadmap</h2>
                     <ul className="space-y-4 text-emerald-800">
                         <li className="flex gap-3">
                             <span className="font-bold text-lime-600">Phase 1:</span>
